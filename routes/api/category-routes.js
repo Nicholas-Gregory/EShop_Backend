@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
     const response = await Category.create({
       categoryName: req.body.name
     });
-    res.status(200).json(response);
+    res.status(200).json("Category succesfully created!");
   } catch (err) {
     res.status(500).json(err.message);
   }
@@ -45,7 +45,7 @@ router.put('/:id', async (req, res) => {
     }, {
       where: { id: req.params.id }
     });
-    res.status(200).json(response);
+    res.status(200).json("Category successfully updated!");
   } catch (err) {
     res.status(500).json(err.message);
   }
@@ -56,7 +56,7 @@ router.delete('/:id', async (req, res) => {
     const response = await Category.destroy({ 
       where: { id: req.params.id }
     });
-    res.status(200).json(response);
+    res.status(200).json("Category successfully deleted!");
   } catch (err) {
     res.status(500).json(err.message);
   }
