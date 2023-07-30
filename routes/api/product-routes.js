@@ -10,7 +10,8 @@ router.get('/', async (req, res) => {
 
     res.status(200).json(data);
   } catch (err) {
-    res.status(500).json(err.message);
+    console.error(err);
+    res.status(500).json({ error: true, message: err.message });
   }
 });
 
@@ -25,7 +26,8 @@ router.get('/:id', async (req, res) => {
       res.status(404).json("No product with that ID exists!");
     }
   } catch (err) {
-    res.status(500).json(err.message);
+    console.error(err);
+    res.status(500).json({ error: true, message: err.message });
   }
 });
 
@@ -56,8 +58,8 @@ router.post('/', (req, res) => {
     })
     .then((productTagIds) => res.status(200).json({ message: "Product created successfully!", data: productTagIds }))
     .catch((err) => {
-      console.log(err);
-      res.status(400).json(err);
+      console.error(err);
+      res.status(400).json({ error: true, message: err.message });
     });
 });
 
@@ -101,8 +103,8 @@ router.put('/:id', (req, res) => {
       return res.json(product);
     })
     .catch((err) => {
-      // console.log(err);
-      res.status(400).json(err);
+      console.error(err);
+      res.status(400).json({ error: true, message: err.message });
     });
 });
 
@@ -116,7 +118,8 @@ router.delete('/:id', async (req, res) => {
       res.status(404).json("No product with that ID exists!");
     }
   } catch (err) {
-    res.status(500).json(err.message);
+    console.error(err);
+    res.status(500).json({ error: true, message: err.message });
   }
 });
 

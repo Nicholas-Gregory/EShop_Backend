@@ -9,7 +9,8 @@ router.get('/', async (req, res) => {
 
     res.status(200).json(data); 
   } catch (err) {
-    res.status(500).json(err.message);
+    console.error(err);
+    res.status(500).json({ error: true, message: err.message });
   }
 });
 
@@ -23,7 +24,8 @@ router.get('/:id', async (req, res) => {
       res.status(404).json("No Category with that ID exists!");
     }
   } catch (err) {
-    res.status(500).json(err.message);
+    console.error(err);
+    res.status(500).json({ error: true, message: err.message });
   }
 });
 
@@ -34,7 +36,8 @@ router.post('/', async (req, res) => {
     });
     res.status(200).json("Category succesfully created!");
   } catch (err) {
-    res.status(500).json(err.message);
+    console.error(err);
+    res.status(500).json({ error: true, message: err.message });
   }
 });
 
@@ -47,7 +50,8 @@ router.put('/:id', async (req, res) => {
     });
     res.status(200).json("Category successfully updated!");
   } catch (err) {
-    res.status(500).json(err.message);
+    console.error(err);
+    res.status(500).json({ error: true, message: err.message });
   }
 });
 
@@ -58,7 +62,8 @@ router.delete('/:id', async (req, res) => {
     });
     res.status(200).json({ message: "Category successfully deleted!", data: response });
   } catch (err) {
-    res.status(500).json(err.message);
+    console.error(err);
+    res.status(500).json({ error: true, message: err.message });
   }
 });
 
