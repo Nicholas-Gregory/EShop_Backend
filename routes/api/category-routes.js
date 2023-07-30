@@ -43,7 +43,7 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    const response = await Category.update({
+    await Category.update({
       categoryName: req.body.name
     }, {
       where: { id: req.params.id }
