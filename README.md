@@ -1,1 +1,2 @@
-# E-commerce Back End Starter Code
+# E-commerce Back End
+A back-end for an E-commerce site, made using Express and Sequelize
